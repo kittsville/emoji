@@ -1,0 +1,2 @@
+# emoji
+Slack/Discord emojis
