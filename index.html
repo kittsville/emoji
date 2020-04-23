@@ -1,0 +1,20 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Emoji Collection</title>
+
+    <link href="/styles.css" rel="stylesheet">
+    </head>
+    <body>
+      {% for file in site.static_files %}
+        {% if site.emoji_types contains file.extname %}
+        {% unless file.path contains "/macromoji" %}
+        <img src="{{ file.path }}" title="{{ file.name }}"/>
+        {% endunless %}
+        {% endif %}
+      {% endfor %}
+    </body>
+</html>
