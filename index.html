@@ -6,9 +6,14 @@
     <meta charset="utf-8">
     <title>Emoji Collection</title>
 
-    <link href="/styles.css" rel="stylesheet">
+    <link href="/static/styles.css" rel="stylesheet">
+    <script defer src="/static/search.js"></script>
     </head>
     <body>
+      <div>
+        <label for="search">Search for emoji:</label>
+        <input id="search" type="text"/ disabled>
+      </div>
       {% for file in site.static_files %}
         {% if site.emoji_types contains file.extname %}
         {% unless file.path contains "/macromoji" %}
