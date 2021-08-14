@@ -7,7 +7,9 @@
     <title>Emoji Collection</title>
 
     <link href="/static/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script defer src="/static/search.js"></script>
+    <script defer src="/static/sections.js"></script>
     </head>
     <body>
       <div>
@@ -17,9 +19,32 @@
       {% for file in site.static_files %}
         {% if site.emoji_types contains file.extname %}
         {% unless file.path contains "/macromoji" %}
-        <img src="{{ file.path }}" title="{{ file.name }}"/>
-        {% endunless %}
+          {% assign in_category = false %}
+          {% for directory in site.emoji_directories %}
+            {% assign excluded_directory = directory | prepend: "/" | append: "/" %}
+            {% if file.path contains excluded_directory %}
+              {% assign in_category = true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          {% unless in_category %}
+          <img src="{{ file.path }}" title="{{ file.name }}"/>
+          {% endunless %}
+          {% endunless %}
         {% endif %}
+      {% endfor %}
+      {% for directory in site.emoji_directories %}
+      {% assign included_directory = directory | prepend: "/" | append: "/" %}
+      <section>
+        <h2>{{ directory | capitalize }}</h2>
+        <div class="emoji-list">
+          {% for file in site.static_files %}
+            {% if site.emoji_types contains file.extname and file.path contains included_directory %}
+              <img src="{{ file.path }}" title="{{ file.name }}"/>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
       {% endfor %}
     </body>
 </html>

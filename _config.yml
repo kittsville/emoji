@@ -3,3 +3,7 @@ emoji_types:
   - ".gif"
   - ".jpg"
   - ".jpeg"
+emoji_directories:
+  - "froge"
+  - "parrots"
+  - "blob.cat"

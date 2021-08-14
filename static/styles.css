@@ -1,4 +1,11 @@
 img {
   max-width: 32px;
   max-height: 32px;
+
+.emoji-list {
+  display: none;
+}
+
+.emoji-list.expanded {
+  display: initial;
 }
