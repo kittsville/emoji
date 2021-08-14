@@ -1,6 +1,6 @@
-document.querySelectorAll('.emoji-list')
+document.querySelectorAll('section')
         .forEach(el =>
           el.addEventListener('click', () =>
-            el.classList.toggle('expanded')
+            el.querySelector('.emoji-list').classList.toggle('expanded')
           )
         );
