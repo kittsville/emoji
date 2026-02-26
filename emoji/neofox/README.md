@@ -1,0 +1,6 @@
+Neofox emojis
+
+https://volpeon.ink/emojis/neofox/
+
+License: CC-BY-NC-SA-4.0
+https://spdx.org/licenses/CC-BY-NC-SA-4.0.html
